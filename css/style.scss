@@ -1,0 +1,115 @@
+$colors : (
+    Dark-cyan: hsl(185, 75%, 39%),
+    Very-dark-desaturated-blue: hsl(229, 23%, 23%),
+    Dark-grayish-blue: hsl(227, 10%, 46%),
+    Dark-gray: hsl(0, 0%, 59%)
+);
+$size : 18px;
+$weigth : (
+    w400 : 400,
+    w700 : 700
+);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Kumbh Sans;
+}
+
+.wrapper {
+    height: 100vh;
+    background: url('../images/bg-pattern-top.svg') -100px -300px no-repeat, url('../images/bg-pattern-bottom.svg') 115% 350px no-repeat;
+    background-size: contain;
+    background-color: map-get($colors, Dark-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (max-width : 700px){
+        height: 110vh;
+        background: url('../images/bg-pattern-top.svg') -120px -30px no-repeat, url('../images/bg-pattern-bottom.svg') 140px 400px no-repeat;
+        background-size: contain;
+        background-color: map-get($colors, Dark-cyan);
+    }
+
+    
+
+    & .card {
+        background-color: #FFF;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+
+        & .image_header {
+            & img{
+                width: 100%;
+            }
+        }
+        @media screen and (max-width : 700px){
+            width: 90%;
+        }
+
+       
+        }
+
+        & .user_image {
+            border: 3px solid #FFF;
+            border-radius: 50%;
+            text-align: center;
+            margin: auto;
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -60px);
+        }
+
+        & .user_infos {
+            display: grid;
+            row-gap: 10px;
+            align-items: center;
+            justify-content: center;
+            margin: 60px 0 25px;
+            // border: 1px solid red;
+
+            & .user_name{
+                font-size: 18px;
+                font-weight: map-get($weigth, w400);
+                color: map-get($colors, Dark-gray);
+
+                & .bold {
+                    font-weight: map-get($weigth, w700);
+                    color: map-get($colors, Very-dark-desaturated-blue);
+                }
+            }
+
+            & .city {
+                text-align: center;
+                color: map-get($colors, Dark-gray);
+            }
+        }
+
+        & hr {
+            color: map-get($colors, Dark-gray);
+        }
+
+        & .stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 20px 0;
+
+            & .stat {
+                display: grid;
+                row-gap: 10px;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: map-get($colors, Dark-gray);
+                & .number {
+                    text-align: center;
+                    font-size: 18px;
+                    font-weight: map-get($weigth, w700);
+                    color: map-get($colors, Very-dark-desaturated-blue);
+                }
+            }
+        }
+    }
